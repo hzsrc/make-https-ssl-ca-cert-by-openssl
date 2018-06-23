@@ -11,7 +11,7 @@
 openssl genrsa -out ca-key.pem -des 2048
 
 #通过CA私钥生成CSR
-openssl req -new -days 122 -key ca-key.pem -out ca-csr.pem
+openssl req -new -days 122 -key ca-key.pem -config ./_cfg/openssl.cnf -out ca-csr.pem
 
 #通过CSR文件和私钥生成CA证书
 openssl x509 -req -days 122 -in ca-csr.pem -signkey ca-key.pem -out ca-cert.pem
@@ -35,8 +35,8 @@ openssl x509 -req -days 122 -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -i
 openssl genrsa -out client-key.pem 2048
 
 #利用私钥生成CSR
-openssl req -days 122 -new -key client-key.pem -out client-csr.pem
+openssl req -days 122 -new -key client-key.pem -config ./_cfg/openssl.cnf -out ./output/client-csr.pem
 
 #生成客户端证书
-openssl x509 -req -days 122 -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -in client-csr.pem -out client-cert.pem
+openssl x509 -req -days 122 -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -in client-csr.pem -out ./output/client-cert.pem
 

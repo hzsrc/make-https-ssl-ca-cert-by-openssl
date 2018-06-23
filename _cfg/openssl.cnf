@@ -11,7 +11,7 @@
     localityName_default = Shanghai  
     organizationalUnitName  = Organizational Unit Name (eg, section)  
     organizationalUnitName_default  = Century bloom 
-    commonName = Century bloom 
+    commonName =  Common Name (eg, your name or your server\'s hostname)
     commonName_max  = 64  
   
     [ v3_req ]  

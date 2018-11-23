@@ -11,7 +11,7 @@
     localityName_default = Shanghai  
     organizationalUnitName  = Organizational Unit Name (eg, section)  
     organizationalUnitName_default  = Century bloom 
-    commonName =  Common Name (eg, your name or your server\'s hostname)
+    commonName =  Common name (eg: your host name)
     commonName_max  = 64  
   
     [ v3_req ]  
@@ -22,4 +22,6 @@
   
     [alt_names]  
 	#注意这个IP.1的设置，IP地址需要和你的服务器的监听地址一样
-    IP.1 = 127.0.0.1
+       #IP.1 = 127.0.0.1
+       DNS.1 = bizapp-test61.umss.cn
+       DNS.2 = localhost

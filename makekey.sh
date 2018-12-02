@@ -1,4 +1,3 @@
-#!/bin/bash
 
 #参数
 pwd=asd123
@@ -18,7 +17,6 @@ openssl req -passin "pass:${pwd}" -new -days 122 -key output/ca-key.pem -config 
 
 #通过CSR文件和私钥生成CA证书
 openssl x509 -passin "pass:${pwd}" -req -days 122 -in output/ca-csr.pem -signkey output/ca-key.pem -out output/ca-cert.pem
-
 
 #--创建服务器端证书
 #为服务器生成私钥

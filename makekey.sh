@@ -1,10 +1,11 @@
 
 #参数
 pwd=asd123
-domain=api.solarsystemscope.com
+domain=xxx.com
 
 # 替换域名
-sed -i "s/DNS.1 = .\+$/DNS.1 = ${domain}/g;s/commonName_default = .\+$/DNS.1 = ${domain}/g" _cfg/openssl.cnf
+sed -i "s/DNS.1 = .\+$/DNS.1 = ${domain}/g" _cfg/openssl.cnf
+sed -i "s/commonName_default = .\+$/commonName_default = ${domain}/g" _cfg/openssl.cnf
 
 mkdir output
 
@@ -39,4 +40,9 @@ openssl req -passin "pass:${pwd}" -days 122 -new -key output/client-key.pem -con
 
 #生成客户端证书
 openssl x509 -passin "pass:${pwd}" -req -days 122 -CA output/ca-cert.pem -CAkey output/ca-key.pem -CAcreateserial -in output/client-csr.pem -out output/client-cert.pem
+
+
+
+# for https
+zip output/ssl.zip output/ca-cert.pem output/server-cert.pem output/server-key.pem
 
